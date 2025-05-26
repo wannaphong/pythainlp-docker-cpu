@@ -2,7 +2,7 @@ FROM ubuntu:noble
 
 COPY . .
 
-RUN apt-get update && apt-get install -y --no-install-recommends build-essential libicu-dev libicu63 pkg-config git && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends build-essential libicu-dev pkg-config git && rm -rf /var/lib/apt/lists/*
 WORKDIR /workspace
 RUN git clone https://github.com/PyThaiNLP/pythainlp.git
 RUN cd pythainlp
