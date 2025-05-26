@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends python3-pip pyt
 RUN update-ca-certificates
 WORKDIR /workspace
 RUN git clone https://github.com/PyThaiNLP/pythainlp.git
-RUN cd pythainlp
+WORKDIR /workspace/pythainlp
 ENV VIRTUAL_ENV=/opt/venv
 RUN python3 -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
