@@ -9,7 +9,7 @@ RUN git clone https://github.com/PyThaiNLP/pythainlp.git
 ENV VIRTUAL_ENV=/opt/venv
 RUN python3 -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
-RUN wget https://github.com/wannaphong/pythainlp-docker-cpu/raw/refs/heads/main/docker_requirements.txt
-RUN pip install -r docker_requirements.txt
 WORKDIR /workspace/pythainlp
+RUN git switch update-docker-fairseq
+RUN if [ -f docker_requirements.txt ]; then pip install -r docker_requirements.txt; fi
 RUN pip install -e .[full] && pip cache purge
