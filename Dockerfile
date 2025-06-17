@@ -10,7 +10,7 @@ ENV VIRTUAL_ENV=/opt/venv
 RUN python3 -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 WORKDIR /workspace/pythainlp
-RUN git switch update-docker-fairseq
+# RUN git switch update-docker-fairseq
 RUN if [ -f docker_requirements.txt ]; then pip install -r docker_requirements.txt; fi
 RUN pip install -e .[full] && pip cache purge
 RUN python -m unittest tests.core
